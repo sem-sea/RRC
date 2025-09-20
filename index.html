@@ -1,22 +1,20 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl" data-lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</title>
-<meta name="description" content="Help de jeugd van RRC naar de interland van Oranje Rugby. Kies 1 lot, 5 loten (meest gekozen) of een Superlot. Scan de QR-code en steun direct. Bijna 1 op de 12 loten wint een prijs.">
+<title data-i18n="title">Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</title>
+<meta name="description" data-i18n="meta">
 <style>
-:root{
-  --ink:#0b0b0b; --muted:#5b6770; --bg:#fffdf8; --panel:#fff; --line:#e9edf1;
-  --rrc:#f37b1f; --rrc-green:#276a3f; --accent:#ff7a1a; --badge:#ffcc00;
-  --r:16px; --shadow:0 10px 24px rgba(15,23,42,.10),0 2px 8px rgba(15,23,42,.06);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+:root{--ink:#0b0b0b;--muted:#5b6770;--bg:#fffdf8;--panel:#fff;--line:#e9edf1;--rrc:#f37b1f;--rrc-green:#276a3f;--accent:#ff7a1a;--badge:#ffcc00;--r:16px;--shadow:0 10px 24px rgba(15,23,42,.10),0 2px 8px rgba(15,23,42,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 .container{max-width:1100px;margin:0 auto;padding:24px}
-.header{display:flex;align-items:center;gap:20px;justify-content:space-between;flex-wrap:wrap;margin-top:8px}
+.header{display:flex;align-items:center;gap:20px;justify-content:space-between;flex-wrap:wrap}
 .header .logos{display:flex;align-items:center;gap:16px}
 .header img{height:64px;object-fit:contain}
+.lang{display:flex;gap:8px;align-items:center}
+.lang button{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:10px;cursor:pointer}
+.lang button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 .win-badge{display:inline-flex;align-items:center;gap:8px;background:var(--badge);color:#111;padding:6px 10px;border-radius:999px;font-weight:700}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin:24px 0}
 @media (max-width:900px){.hero{grid-template-columns:1fr}}
@@ -28,11 +26,13 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
 .hero-visual img{width:100%;display:block;border-radius:var(--r)}
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0 24px}
 @media (max-width:900px){.pricing{grid-template-columns:1fr}}
-.plan{padding:18px}
-.plan h3{margin:0 0 6px;font-size:18px}
-.price{font-size:28px;font-weight:800;margin:4px 0 12px}
+.plan{padding:18px;display:flex;flex-direction:column;gap:10px}
+.plan h3{margin:0;font-size:18px}
+.price{font-size:28px;font-weight:800;margin:0}
 .plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:#2f3740}
 .plan li::before{content:"• ";color:var(--rrc)}
+.cta{margin-top:auto}
+.cta .btn{display:block;width:100%;text-align:center}
 .plan.starter{border-top:6px solid var(--rrc-green)}
 .plan.team{border-top:6px solid var(--accent);position:relative}
 .plan.team .most{position:absolute;top:-14px;right:12px;background:var(--rrc-green);color:#fff;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
@@ -53,71 +53,87 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
   <!-- HEADER -->
   <header class="container header">
     <div class="logos">
-      <!-- LOGO’s -->
       <img src="https://i.postimg.cc/sg0XYsdR/IMG-4300.png" alt="Rotterdamse Rugby Club logo">
       <img src="https://i.postimg.cc/sg2xG1Lc/IMG-4301.png" alt="Grote Clubactie logo">
     </div>
-    <div class="win-badge" aria-label="Winstkans">Bijna 1 op de 12 loten wint</div>
+    <div class="lang" aria-label="Language switcher">
+      <span class="small" data-i18n="language">Taal:</span>
+      <button type="button" data-setlang="nl" class="active">NL</button>
+      <button type="button" data-setlang="en">EN</button>
+    </div>
   </header>
 
   <!-- HERO -->
   <section class="container hero">
     <div>
-      <h1 class="h-title">Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</h1>
-      <p class="h-sub">Help onze jeugd naar de interland van Oranje Rugby.</p>
+      <div class="win-badge" data-i18n="winbadge">Bijna 1 op de 12 loten wint</div>
+      <h1 class="h-title" data-i18n="h1">Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</h1>
+      <p class="h-sub" data-i18n="sub">Help onze jeugd naar de interland van Oranje Rugby.</p>
 
       <div class="benefits">
-        <div class="benefit">Kans op <strong>€100.000</strong></div>
-        <div class="benefit">Steun de <strong>jeugd van RRC</strong></div>
-        <div class="benefit">Extra prijzen: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>cadeaubonnen</strong></div>
+        <div class="benefit" data-i18n="b1">Kans op <strong>€100.000</strong></div>
+        <div class="benefit" data-i18n="b2">Steun de <strong>jeugd van RRC</strong></div>
+        <div class="benefit" data-i18n="b3">Extra prijzen: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>cadeaubonnen</strong></div>
       </div>
 
       <!-- PRICING -->
       <div class="pricing">
         <article class="card plan starter" aria-label="Starter – 1 lot">
-          <h3>Starter ��� 1 lot</h3>
-          <div class="price">€ 3,-</div>
+          <h3 data-i18n="p1_title">Starter – 1 lot</h3>
+          <div class="price" data-i18n="p1_price">€ 3,-</div>
           <ul>
-            <li>Kans op €100.000</li>
-            <li>Steun de jeugd</li>
-            <li><strong>Bijna 1 op de 12 wint</strong></li>
+            <li data-i18n="p1_l1">Kans op €100.000</li>
+            <li data-i18n="p1_l2">Steun de jeugd</li>
+            <li data-i18n="p1_l3"><strong>Bijna 1 op de 12 wint</strong></li>
           </ul>
+          <div class="cta">
+            <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+          </div>
         </article>
 
         <article class="card plan team" aria-label="Team Support – 5 loten">
-          <span class="most">Meest gekozen</span>
-          <h3>Team Support – 5 loten</h3>
-          <div class="price">€ 15,-</div>
+          <span class="most" data-i18n="most">Meest gekozen</span>
+          <h3 data-i18n="p2_title">Team Support – 5 loten</h3>
+          <div class="price" data-i18n="p2_price">€ 15,-</div>
           <ul>
-            <li>Meer impact, meer kans</li>
-            <li>Kans op o.a. cruise, e-bike en cadeaubonnen</li>
+            <li data-i18n="p2_l1">Meer impact, meer kans</li>
+            <li data-i18n="p2_l2">Kans op o.a. cruise, e-bike en cadeaubonnen</li>
           </ul>
+          <div class="cta">
+            <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+          </div>
         </article>
 
         <article class="card plan super" aria-label="Superlot – 50 loten">
-          <h3>Superlot – 50 loten</h3>
-          <div class="price">€ 150,-</div>
+          <h3 data-i18n="p3_title">Superlot – 50 loten</h3>
+          <div class="price" data-i18n="p3_price">€ 150,-</div>
           <ul>
-            <li>Voor bedrijven & families</li>
-            <li><strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong></li>
-            <li>Extra winkansen en mooie prijzen</li>
+            <li data-i18n="p3_l1">Voor bedrijven & families</li>
+            <li data-i18n="p3_l2"><strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong></li>
+            <li data-i18n="p3_l3">Extra winkansen en mooie prijzen</li>
           </ul>
+          <div class="cta">
+            <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+          </div>
         </article>
       </div>
 
       <!-- EXTRA PRIJZEN -->
       <div class="card" style="padding:14px;margin-top:4px">
-        <strong>Extra prijzen (enkele voorbeelden):</strong>
+        <strong data-i18n="x_title">Extra prijzen (enkele voorbeelden):</strong>
         <div class="benefits" style="margin-top:8px">
-          <div class="benefit">🚢 Cruise – <strong>15 winnaars</strong></div>
-          <div class="benefit">🚲 E-bike – <strong>€4.000</strong></div>
-          <div class="benefit">🎁 Cadeaubonnen – <strong>Van der Valk, adidas, Scapino</strong></div>
+          <div class="benefit" data-i18n="x1">🚢 Cruise – <strong>15 winnaars</strong></div>
+          <div class="benefit" data-i18n="x2">🚲 E-bike – <strong>€4.000</strong></div>
+          <div class="benefit" data-i18n="x3">🎁 Cadeaubonnen – <strong>Van der Valk, adidas, Scapino</strong></div>
         </div>
-        <p class="small">* Volledige prijzenlijst: <a href="https://www.clubactie.nl/lotenkopers/prijzen-uitslag/" target="_blank" rel="noopener">clubactie.nl</a></p>
+        <p class="small">
+          <span data-i18n="x_note">* Volledige prijzenlijst:</span>
+          <a href="https://www.clubactie.nl/lotenkopers/prijzen-uitslag/" target="_blank" rel="noopener">clubactie.nl</a>
+        </p>
       </div>
     </div>
 
-    <!-- HERO VISUAL: vader & zoon -->
+    <!-- HERO VISUAL -->
     <figure class="hero-visual card" aria-label="Vader en zoon in RRC-shirt">
       <img src="https://i.postimg.cc/bw6T1DwN/31-ED65-E1-D177-4-B06-9-FFF-8-B656-FC97966.png" alt="Vader en zoon in RRC-shirt met rugbybal">
     </figure>
@@ -126,23 +142,92 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
   <!-- QR & CTA -->
   <section class="container cta-block card">
     <div>
-      <h2 style="margin:0 0 8px">Scan & koop direct je lot</h2>
-      <p class="small" style="margin:0 0 10px">Bijna 1 op de 12 loten wint een prijs.</p>
-      <!-- Zet hier dezelfde URL als in de QR (indien beschikbaar) -->
-      <a class="btn" href="#" target="_blank" rel="noopener">NU STEUNEN</a>
+      <h2 style="margin:0 0 8px" data-i18n="cta_h2">Scan & koop direct je lot</h2>
+      <p class="small" style="margin:0 0 10px" data-i18n="cta_p">Bijna 1 op de 12 loten wint een prijs.</p>
+      <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
     </div>
     <div class="qr-wrap">
       <div class="qr">
         <img src="https://i.ibb.co/fY0bMKRG/SCANME.png" alt="QR-code voor loten kopen">
       </div>
-      <div class="small">Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.</div>
+      <div class="small" data-i18n="qr_note">Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="container footer">
-    <div>Vragen? Mail <a href="mailto:jeugd@rrc.nl">jeugd@rrc.nl</a> of bel Karin: 06-2313718</div>
-    <div class="small">Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie</div>
+    <div data-i18n="foot_contact">Vragen? Mail <a href="mailto:jeugd@rrc.nl">jeugd@rrc.nl</a> of bel Karin: 06-2313718</div>
+    <div class="small" data-i18n="foot_line">Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie</div>
   </footer>
+
+<script>
+/* Simple i18n (NL default) */
+const dict = {
+  nl:{
+    title:"Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!",
+    meta:"Help de jeugd van RRC naar de interland van Oranje Rugby. Kies 1 lot, 5 loten (meest gekozen) of een Superlot. Scan de QR-code en steun direct. Bijna 1 op de 12 loten wint een prijs.",
+    language:"Taal:",
+    winbadge:"Bijna 1 op de 12 loten wint",
+    h1:"Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!",
+    sub:"Help onze jeugd naar de interland van Oranje Rugby.",
+    b1:"Kans op <strong>€100.000</strong>",
+    b2:"Steun de <strong>jeugd van RRC</strong>",
+    b3:"Extra prijzen: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>cadeaubonnen</strong>",
+    p1_title:"Starter – 1 lot", p1_price:"€ 3,-", p1_l1:"Kans op €100.000", p1_l2:"Steun de jeugd", p1_l3:"<strong>Bijna 1 op de 12 wint</strong>",
+    p2_title:"Team Support – 5 loten", p2_price:"€ 15,-", p2_l1:"Meer impact, meer kans", p2_l2:"Kans op o.a. cruise, e-bike en cadeaubonnen",
+    p3_title:"Superlot – 50 loten", p3_price:"€ 150,-", p3_l1:"Voor bedrijven & families", p3_l2:"<strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong>", p3_l3:"Extra winkansen en mooie prijzen",
+    most:"Meest gekozen",
+    x_title:"Extra prijzen (enkele voorbeelden):", x1:"🚢 Cruise – <strong>15 winnaars</strong>", x2:"🚲 E-bike – <strong>€4.000</strong>", x3:"🎁 Cadeaubonnen – <strong>Van der Valk, adidas, Scapino</strong>", x_note:"* Volledige prijzenlijst:",
+    cta_h2:"Scan & koop direct je lot", cta_p:"Bijna 1 op de 12 loten wint een prijs.",
+    btn_buy:"NU STEUNEN", qr_note:"Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.",
+    foot_contact:"Vragen? Mail <a href=\"mailto:jeugd@rrc.nl\">jeugd@rrc.nl</a> of bel Karin: 06-2313718",
+    foot_line:"Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie"
+  },
+  en:{
+    title:"Support Rotterdamse Rugby Club – Buy a ticket and win great prizes!",
+    meta:"Help our youth visit the national team match. Choose 1 ticket, 5 tickets (most chosen) or a Super Ticket. Scan the QR and support directly. Almost 1 in 12 tickets wins a prize.",
+    language:"Language:",
+    winbadge:"Almost 1 in 12 tickets wins",
+    h1:"Support Rotterdamse Rugby Club – Buy a ticket and win great prizes!",
+    sub:"Help our youth attend the Netherlands National Rugby Team match.",
+    b1:"Chance to win <strong>€100,000</strong>",
+    b2:"Direct support for <strong>RRC youth</strong>",
+    b3:"Extra prizes: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>gift cards</strong>",
+    p1_title:"Starter – 1 ticket", p1_price:"€ 3", p1_l1:"Chance at €100,000", p1_l2:"Support the youth", p1_l3:"<strong>Almost 1 in 12 wins</strong>",
+    p2_title:"Team Support – 5 tickets", p2_price:"€ 15", p2_l1:"More impact, more chance", p2_l2:"Chance at e.g. cruise, e-bike and gift cards",
+    p3_title:"Super Ticket – 50 tickets", p3_price:"€ 150", p3_l1:"For companies & families", p3_l2:"<strong>Make an immediate impact – give the kids an unforgettable experience</strong>", p3_l3:"More chances & great prizes",
+    most:"Most chosen",
+    x_title:"Extra prizes (examples):", x1:"🚢 Cruise – <strong>15 winners</strong>", x2:"🚲 E-bike – <strong>€4,000</strong>", x3:"🎁 Gift cards – <strong>Van der Valk, adidas, Scapino</strong>", x_note:"* Full prize list:",
+    cta_h2:"Scan & buy your ticket now", cta_p:"Almost 1 in 12 tickets wins a prize.",
+    btn_buy:"SUPPORT NOW", qr_note:"Works anywhere: camera/QR → pick a bundle → pay & done.",
+    foot_contact:"Questions? Email <a href=\"mailto:jeugd@rrc.nl\">jeugd@rrc.nl</a> or call Karin: +31 6 2313 718",
+    foot_line:"Rotterdamse Rugby Club · Since 1940 · Grote Clubactie"
+  }
+};
+
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  // swap active btn
+  document.querySelectorAll('[data-setlang]').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang));
+  // translate
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[lang][key]!==undefined){
+      if(el.tagName.toLowerCase()==='meta' && key==='meta'){ el.setAttribute('content', dict[lang][key]); }
+      else if(el.tagName.toLowerCase()==='title'){ el.textContent = dict[lang][key]; }
+      else{ el.innerHTML = dict[lang][key]; }
+    }
+  });
+}
+
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('[data-setlang]');
+  if(btn){ setLang(btn.dataset.setlang); }
+});
+
+// init (default NL)
+setLang('nl');
+</script>
 </body>
 </html>
