@@ -10,20 +10,34 @@
 <link rel="dns-prefetch" href="https://i.postimg.cc">
 
 <style>
-/* ===== Reset & safety (geen horizontale scroll) ===== */
+/* ================= RESET & GLOBAL SAFETY ================= */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{max-width:100%;overflow-x:hidden}
-body{background:#fffdf8;color:#0b0b0b;font:400 16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  background:#fffdf8;color:#0b0b0b;
+  font:400 16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 h1,h2,h3{margin:0}
 
-/* ===== Layout ===== */
-.container{inline-size:min(1100px,100%);margin-inline:auto;padding-inline:clamp(16px,4vw,24px);padding-block:16px;overflow-x:clip}
-.card{background:#fff;border:1px solid #e9edf1;border-radius:16px;box-shadow:0 10px 24px rgba(15,23,42,.10),0 2px 8px rgba(15,23,42,.06);max-width:100%;contain:layout paint}
+/* ================= LAYOUT ================= */
+.container{
+  inline-size:min(1100px,100%);
+  margin-inline:auto;
+  padding-inline:clamp(16px,4vw,24px);
+  padding-block:16px;
+  overflow-x:clip /* prevent subtle iOS bleed */
+}
+.card{
+  background:#fff;border:1px solid #e9edf1;border-radius:16px;
+  box-shadow:0 10px 24px rgba(15,23,42,.10),0 2px 8px rgba(15,23,42,.06);
+  max-width:100%;contain:layout paint
+}
 .small{font-size:.9rem;color:#5b6770}
 
-/* Header */
+/* ================= HEADER ================= */
 .header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .header .logos{display:flex;align-items:center;gap:12px}
 .header img{height:52px;object-fit:contain}
@@ -31,69 +45,99 @@ h1,h2,h3{margin:0}
 .lang button{border:1px solid #e9edf1;background:#fff;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:600}
 .lang button.active{background:#0b0b0b;color:#fff}
 
-/* Hero */
+/* ================= HERO ================= */
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin:8px 0 20px}
 @media(max-width:900px){.hero{grid-template-columns:1fr}}
-.h-title{font-size:clamp(1.6rem,2.2vw + 1rem,2.4rem);font-weight:900;line-height:1.12;margin:.25rem 0 .5rem;overflow-wrap:anywhere;word-break:break-word;hyphens:auto;text-wrap:balance}
+.h-title{
+  font-size:clamp(1.6rem,2.2vw + 1rem,2.4rem);
+  font-weight:900;line-height:1.12;margin:.25rem 0 .5rem;
+  overflow-wrap:anywhere;word-break:break-word;hyphens:auto;text-wrap:balance
+}
 .h-sub{color:#5b6770;margin:.2rem 0 1rem}
 .win-badge{display:inline-block;background:#ffcc00;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;margin-bottom:10px}
 .benefits{display:flex;flex-wrap:wrap;gap:8px}
 .benefit{background:#fff;border:1px dashed #e9edf1;padding:6px 10px;border-radius:10px;font-size:.95rem}
 
-/* Pricing */
-.pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 0 24px;max-width:100%}
+/* ================= PRICING ================= */
+.pricing{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;margin:16px 0 24px;max-width:100%
+}
 @media(max-width:900px){.pricing{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.pricing{grid-template-columns:1fr}}
-.plan{padding:16px;display:flex;flex-direction:column;gap:8px}
+.plan{padding:16px;display:flex;flex-direction:column;gap:8px;position:relative}
 .plan h3{font-size:1.1rem}
 .price{font-size:1.6rem;font-weight:800;color:#0b0b0b}
 .plan ul{margin:0;padding-left:18px;color:#2f3740}
 .plan li::marker{color:#f37b1f}
+
 .plan.starter{border-top:6px solid #276a3f}
-.plan.team{border-top:6px solid #ff7a1a;position:relative;overflow-x:clip}
-.plan.team .most{position:absolute;top:-12px;right:12px;background:#276a3f;color:#fff;padding:4px 8px;border-radius:999px;font-size:.75rem;font-weight:800}
+.plan.team{border-top:6px solid #ff7a1a;overflow-x:clip}
 .plan.super{border-top:6px solid #ff7a1a;outline:3px solid #ffe7d3;overflow-x:clip}
 .plan.super .price{color:#ff7a1a}
 
-/* Buttons */
-.btn{display:block;width:100%;background:#ff7a1a;color:#fff;padding:14px 16px;border-radius:12px;font-weight:900;text-align:center;margin-top:auto;transition:filter .2s ease,transform .06s ease}
+/* ====== BIG CENTERED “MEEST GEKOZEN” BADGE (over card rand) ====== */
+.plan.team .most{
+  position:absolute;
+  top:-18px;              /* steekt boven de kaart uit */
+  left:50%; transform:translateX(-50%);
+  background:#276a3f; color:#fff;
+  padding:8px 16px; border-radius:999px;
+  font-size:.95rem; font-weight:900;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  white-space:nowrap; z-index:5
+}
+
+/* ================= BUTTONS ================= */
+.btn{
+  display:block;width:100%;background:#ff7a1a;color:#fff;
+  padding:14px 16px;border-radius:12px;font-weight:900;text-align:center;
+  margin-top:auto;transition:filter .2s ease,transform .06s ease
+}
 .btn:hover{filter:brightness(.95)} .btn:active{transform:translateY(1px)}
 
-/* Anders */
+/* ================= ANDERS ================= */
 .anders{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:14px}
 .anders input{width:90px;padding:8px;border:1px solid #e1e6ea;border-radius:10px}
 .totaal{font-weight:800}
 
-/* Info blocks */
+/* ================= INFO SECTIONS ================= */
 section.card h2{font-size:1.2rem;margin:.25rem 0 .5rem}
 
-/* CTA + QR */
+/* ================= CTA + QR ================= */
 .cta-block{display:grid;grid-template-columns:1.1fr auto;gap:16px;align-items:center;margin:16px 0;padding:16px}
 @media(max-width:680px){.cta-block{grid-template-columns:1fr}}
 .qr{background:#fff;border:1px solid #e9edf1;padding:10px;border-radius:12px;text-align:center}
 .qr img{width:min(64vw,200px);height:auto;margin-inline:auto}
 .qr-note{margin-top:8px;font-size:.85rem;text-align:center;background:#f6f8fb;padding:6px 10px;border-radius:8px;color:#263238}
 
-/* Sticky mobile CTA */
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#ffffffcc;backdrop-filter:saturate(160%) blur(6px);border-top:1px solid #e9edf1;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0));display:none;gap:10px;align-items:center}
-.sticky-cta .meta{font-size:.85rem;font-weight:600;background:#276a3f;color:#fff;padding:6px 10px;border-radius:999px;white-space:nowrap}
+/* ================= STICKY MOBILE CTA ================= */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:#ffffffcc;backdrop-filter:saturate(160%) blur(6px);
+  border-top:1px solid #e9edf1;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom,0));
+  display:none;gap:10px;align-items:center
+}
+.sticky-cta .meta{
+  font-size:.85rem;font-weight:600;background:#276a3f;color:#fff;
+  padding:6px 10px;border-radius:999px;white-space:nowrap
+}
 .sticky-cta .btn{width:100%;padding:14px 18px;border-radius:12px}
 body.has-sticky{padding-bottom:80px}
 @media(max-width:680px){.sticky-cta{display:flex}}
 
-/* Footer */
+/* ================= FOOTER ================= */
 .footer{text-align:center;padding:14px 0;color:#5b6770;font-size:.85rem}
 
-/* Guards tegen overflow */
+/* ================= EXTRA GUARDS ================= */
 .hero,.pricing,.benefits,.cta-block,.qr{max-width:100%;overflow-x:clip}
-
-/* Extra iPhone klein */
 @media(max-width:390px){.h-title{font-size:clamp(1.35rem,7vw,1.7rem);line-height:1.18}.h-sub{font-size:.95rem}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="container header">
   <div class="logos">
     <img src="https://i.postimg.cc/sg0XYsdR/IMG-4300.png" alt="RRC logo">
@@ -106,7 +150,7 @@ body.has-sticky{padding-bottom:80px}
 </header>
 
 <main class="container">
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
   <section class="hero">
     <div>
       <div class="win-badge" data-i18n="winbadge">Winkans 1 op 9</div>
@@ -123,32 +167,45 @@ body.has-sticky{padding-bottom:80px}
     </figure>
   </section>
 
-  <!-- PRICING -->
+  <!-- ================= PRICING ================= -->
   <section class="pricing" id="bundles" aria-label="Kies je bundel">
+    <!-- 1 lot -->
     <article class="card plan starter">
       <h3 data-i18n="p1_title">Starter – 1 lot</h3>
       <div class="price" data-i18n="p1_price">€ 3,-</div>
-      <ul><li data-i18n="p1_l1">Kans op €100.000</li><li data-i18n="p1_l2">Winkans 1 op 9</li></ul>
+      <ul>
+        <li data-i18n="p1_l1">Kans op €100.000</li>
+        <li data-i18n="p1_l2">Winkans 1 op 9</li>
+      </ul>
       <a class="btn" id="buy1" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
     </article>
 
+    <!-- 5 loten (MEEST GEKOZEN) -->
     <article class="card plan team">
       <span class="most" data-i18n="most">Meest gekozen</span>
       <h3 data-i18n="p2_title">Team Support – 5 loten</h3>
       <div class="price" data-i18n="p2_price">€ 15,-</div>
-      <ul><li data-i18n="p2_l1">Meer impact, meer kans</li><li data-i18n="p2_l2">Cruise, e-bike en cadeaubonnen</li></ul>
+      <ul>
+        <li data-i18n="p2_l1">Meer impact, meer kans</li>
+        <li data-i18n="p2_l2">Cruise, e-bike en cadeaubonnen</li>
+      </ul>
       <a class="btn" id="buy5" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
     </article>
 
+    <!-- 50 loten -->
     <article class="card plan super">
       <h3 data-i18n="p3_title">Superlot – 50 loten</h3>
       <div class="price" data-i18n="p3_price">€ 150,-</div>
-      <ul><li data-i18n="p3_l1">Voor bedrijven & families</li><li data-i18n="p3_l2"><strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong></li><li data-i18n="p3_l3">Extra winkansen en mooie prijzen</li></ul>
+      <ul>
+        <li data-i18n="p3_l1">Voor bedrijven & families</li>
+        <li data-i18n="p3_l2"><strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong></li>
+        <li data-i18n="p3_l3">Extra winkansen en mooie prijzen</li>
+      </ul>
       <a class="btn" id="buy50" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
     </article>
   </section>
 
-  <!-- ANDERS -->
+  <!-- ================= ANDERS ================= -->
   <section class="card anders" aria-label="Ander aantal">
     <label for="nLots" style="white-space:nowrap" data-i18n="anders_label">Anders:</label>
     <input id="nLots" type="number" min="1" step="1" value="3" inputmode="numeric">
@@ -156,7 +213,7 @@ body.has-sticky{padding-bottom:80px}
     <a id="btnAnders" class="btn" style="max-width:280px;margin-left:auto" href="#" target="_blank" rel="noopener" data-i18n="btn_continue">DOORGAAN</a>
   </section>
 
-  <!-- FEITEN -->
+  <!-- ================= FEITEN ================= -->
   <section class="card" style="padding:16px;margin:12px 0" aria-label="Belangrijke feiten">
     <h2 data-i18n="facts_title">Belangrijke feiten</h2>
     <ul style="margin:6px 0 0">
@@ -166,7 +223,7 @@ body.has-sticky{padding-bottom:80px}
     </ul>
   </section>
 
-  <!-- PRIJZEN -->
+  <!-- ================= PRIJZEN ================= -->
   <section class="card" style="padding:16px;margin:12px 0" aria-label="Prijzen">
     <h2 data-i18n="prizes_title">Prijzen</h2>
     <div class="benefits" style="margin-top:8px">
@@ -178,7 +235,7 @@ body.has-sticky{padding-bottom:80px}
     <p class="small" style="margin:8px 0 0">Volledige prijzenlijst: <a href="https://www.clubactie.nl/lotenkopers/prijzen-uitslag/" target="_blank" rel="noopener">clubactie.nl</a></p>
   </section>
 
-  <!-- CTA + QR -->
+  <!-- ================= CTA + QR ================= -->
   <section class="cta-block card" aria-label="Scan & koop">
     <div>
       <h2 data-i18n="cta_h2">Scan & koop direct je lot</h2>
@@ -192,42 +249,43 @@ body.has-sticky{padding-bottom:80px}
   </section>
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="container footer">
   <div data-i18n="foot_contact">Vragen? Mail <a href="mailto:jeugd@rrc.nl">jeugd@rrc.nl</a> of bel Karin: 06-2313718</div>
   <div class="small" data-i18n="foot_line">Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie</div>
 </footer>
 
-<!-- Sticky CTA (mobile) -->
+<!-- ================= STICKY CTA ================= -->
 <nav class="sticky-cta" aria-label="Snelle actie">
   <div class="meta">Winkans 1 op 9 · 80% naar RRC</div>
   <a class="btn" id="buySticky" href="#" target="_blank" rel="noopener">NU STEUNEN</a>
 </nav>
 
 <script>
-/* Kooplinks met UTM */
+/* ---------------- LINKS MET UTM ---------------- */
 const BASE_LOT   = "https://lot.clubactie.nl/lot/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
 const BASE_SUPER = "https://lot.clubactie.nl/superlotkopen/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
 const withUTM = (base,utm)=>`${base}&utm_source=site&utm_medium=cta&utm_campaign=rrc&utm_content=${encodeURIComponent(utm)}`;
-
-/* Knoppen koppelen */
 const $ = id=>document.getElementById(id);
-$('buy1').href     = withUTM(BASE_LOT,"1_lot");
-$('buy5').href     = withUTM(BASE_LOT,"5_loten");
-$('buy50').href    = withUTM(BASE_SUPER,"superlot");
-$('buyMain').href  = withUTM(BASE_LOT,"main_cta");
-$('buySticky').href= withUTM(BASE_LOT,"sticky_cta");
 
-/* Anders → live prijs + link */
+if($('buy1'))     $('buy1').href     = withUTM(BASE_LOT,"1_lot");
+if($('buy5'))     $('buy5').href     = withUTM(BASE_LOT,"5_loten");
+if($('buy50'))    $('buy50').href    = withUTM(BASE_SUPER,"superlot");
+if($('buyMain'))  $('buyMain').href  = withUTM(BASE_LOT,"main_cta");
+if($('buySticky'))$('buySticky').href= withUTM(BASE_LOT,"sticky_cta");
+
+/* ---------------- ANDERS (live totaal + link) ---------------- */
 const nLots = $('nLots'), totaal = $('totaal'), btnAnders = $('btnAnders');
 function fmtEUR(v){return new Intl.NumberFormat(document.documentElement.lang==='nl'?'nl-NL':'en-GB',{style:'currency',currency:'EUR'}).format(v)}
 function updateAnders(){
+  if(!nLots) return;
   const n = Math.max(1, parseInt(nLots.value||'1',10));
-  totaal.textContent = (document.documentElement.lang==='nl'?'Totaal: ':'Total: ') + fmtEUR(n*3);
-  btnAnders.href = withUTM(BASE_LOT, `anders_${n}`);
+  if(totaal) totaal.textContent = (document.documentElement.lang==='nl'?'Totaal: ':'Total: ') + fmtEUR(n*3);
+  if(btnAnders) btnAnders.href = withUTM(BASE_LOT, `anders_${n}`);
 }
-nLots.addEventListener('input', updateAnders); updateAnders();
+if(nLots){ nLots.addEventListener('input', updateAnders); updateAnders(); }
 
-/* Eenvoudige i18n */
+/* ---------------- EENVOUDIGE I18N ---------------- */
 const dict = {
   nl:{title:"Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!",
       meta:"Help de jeugd van RRC naar de interland van Oranje Rugby. 80% gaat naar de club. Winkans 1 op 9. Trekking 11 november. Kies 1 lot, 5 loten (meest gekozen) of een Superlot.",
@@ -285,7 +343,7 @@ document.addEventListener('click', e=>{
   const b=e.target.closest('[data-setlang]'); if(b) setLang(b.dataset.setlang);
 });
 
-/* Sticky spacing voor mobiel */
+/* ---------------- STICKY SPACING (mobiel) ---------------- */
 (function(){
   const mq = window.matchMedia("(max-width: 680px)");
   const toggle = ()=> document.body.classList.toggle("has-sticky", mq.matches);
@@ -293,7 +351,7 @@ document.addEventListener('click', e=>{
   toggle();
 })();
 
-/* init */
+/* init NL */
 setLang('nl');
 </script>
 </body>
