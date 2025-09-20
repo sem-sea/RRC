@@ -4,355 +4,204 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ff7a1a">
+
 <title data-i18n="title">Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</title>
 <meta name="description" data-i18n="meta" content="Help de jeugd van RRC naar de interland van Oranje Rugby. 80% gaat naar de club. Winkans 1 op 9. Trekking 11 november. Kies 1 lot, 5 loten (meest gekozen) of een Superlot.">
-<link rel="preconnect" href="https://i.postimg.cc" crossorigin>
-<link rel="dns-prefetch" href="https://i.postimg.cc">
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!">
+<meta property="og:description" content="Help de jeugd naar de interland van Oranje Rugby. 80% gaat naar de club. Winkans 1 op 9.">
+<meta property="og:image" content="https://i.postimg.cc/bw6T1DwN/31-ED65-E1-D177-4-B06-9-FFF-8-B656-FC97966.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rrc-clubactie.nl/">
 
 <style>
-/* ================= RESET & GLOBAL SAFETY ================= */
+/* Reset & base */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{max-width:100%;overflow-x:hidden}
-body{
-  background:#fffdf8;color:#0b0b0b;
-  font:400 16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
-}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fffdf8;color:#0b0b0b;line-height:1.5}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 h1,h2,h3{margin:0}
 
-/* ================= LAYOUT ================= */
-.container{
-  inline-size:min(1100px,100%);
-  margin-inline:auto;
-  padding-inline:clamp(16px,4vw,24px);
-  padding-block:16px;
-  overflow-x:clip /* prevent subtle iOS bleed */
-}
-.card{
-  background:#fff;border:1px solid #e9edf1;border-radius:16px;
-  box-shadow:0 10px 24px rgba(15,23,42,.10),0 2px 8px rgba(15,23,42,.06);
-  max-width:100%;contain:layout paint
-}
+/* Containers */
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:#fff;border:1px solid #e9edf1;border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,.08);max-width:100%}
 .small{font-size:.9rem;color:#5b6770}
 
-/* ================= HEADER ================= */
+/* Header */
 .header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .header .logos{display:flex;align-items:center;gap:12px}
-.header img{height:52px;object-fit:contain}
+.header img{height:48px;width:auto}
 .lang{display:flex;gap:6px}
 .lang button{border:1px solid #e9edf1;background:#fff;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:600}
 .lang button.active{background:#0b0b0b;color:#fff}
 
-/* ================= HERO ================= */
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin:8px 0 20px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}}
-.h-title{
-  font-size:clamp(1.6rem,2.2vw + 1rem,2.4rem);
-  font-weight:900;line-height:1.12;margin:.25rem 0 .5rem;
-  overflow-wrap:anywhere;word-break:break-word;hyphens:auto;text-wrap:balance
-}
-.h-sub{color:#5b6770;margin:.2rem 0 1rem}
-.win-badge{display:inline-block;background:#ffcc00;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;margin-bottom:10px}
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin:20px 0}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+.h-title{font-size:2rem;font-weight:900;margin-bottom:.5rem}
+.h-sub{color:#5b6770;margin-bottom:1rem}
+.win-badge{display:inline-block;background:#ffcc00;color:#111;padding:6px 12px;border-radius:999px;font-weight:700;margin-bottom:10px}
 .benefits{display:flex;flex-wrap:wrap;gap:8px}
-.benefit{background:#fff;border:1px dashed #e9edf1;padding:6px 10px;border-radius:10px;font-size:.95rem}
+.benefit{background:#fff;border:1px dashed #e9edf1;padding:6px 10px;border-radius:10px;font-size:.9rem}
 
-/* ================= PRICING ================= */
-.pricing{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;margin:16px 0 24px;max-width:100%
-}
-@media(max-width:900px){.pricing{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.pricing{grid-template-columns:1fr}}
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
 .plan{padding:16px;display:flex;flex-direction:column;gap:8px;position:relative}
 .plan h3{font-size:1.1rem}
-.price{font-size:1.6rem;font-weight:800;color:#0b0b0b}
+.price{font-size:1.4rem;font-weight:800;color:#0b0b0b}
 .plan ul{margin:0;padding-left:18px;color:#2f3740}
-.plan li::marker{color:#f37b1f}
-
 .plan.starter{border-top:6px solid #276a3f}
-.plan.team{border-top:6px solid #ff7a1a;overflow-x:clip}
-.plan.super{border-top:6px solid #ff7a1a;outline:3px solid #ffe7d3;overflow-x:clip}
+.plan.team{border-top:6px solid #ff7a1a}
+.plan.super{border-top:6px solid #ff7a1a;outline:3px solid #ffe7d3}
 .plan.super .price{color:#ff7a1a}
 
-/* ====== BIG CENTERED “MEEST GEKOZEN” BADGE (over card rand) ====== */
+/* Label Meest gekozen */
 .plan.team .most{
   position:absolute;
-  top:-18px;              /* steekt boven de kaart uit */
-  left:50%; transform:translateX(-50%);
-  background:#276a3f; color:#fff;
-  padding:8px 16px; border-radius:999px;
-  font-size:.95rem; font-weight:900;
-  box-shadow:0 6px 16px rgba(0,0,0,.18);
-  white-space:nowrap; z-index:5
+  top:8px;   /* iets lager zodat volledig zichtbaar */
+  right:12px;
+  background:#276a3f;
+  color:#fff;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
-/* ================= BUTTONS ================= */
-.btn{
-  display:block;width:100%;background:#ff7a1a;color:#fff;
-  padding:14px 16px;border-radius:12px;font-weight:900;text-align:center;
-  margin-top:auto;transition:filter .2s ease,transform .06s ease
-}
-.btn:hover{filter:brightness(.95)} .btn:active{transform:translateY(1px)}
+/* Buttons */
+.btn{display:block;width:100%;background:#ff7a1a;color:#fff;padding:12px 16px;border-radius:10px;font-weight:800;text-align:center;margin-top:auto;transition:.2s}
+.btn:hover{filter:brightness(.95)}
 
-/* ================= ANDERS ================= */
+/* Anders */
 .anders{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:14px}
 .anders input{width:90px;padding:8px;border:1px solid #e1e6ea;border-radius:10px}
 .totaal{font-weight:800}
 
-/* ================= INFO SECTIONS ================= */
-section.card h2{font-size:1.2rem;margin:.25rem 0 .5rem}
+/* CTA + QR */
+.cta-block{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin:20px 0;padding:16px}
+@media(max-width:600px){.cta-block{grid-template-columns:1fr}}
+.qr{text-align:center}
+.qr img{width:min(64vw,220px);margin:0 auto}
+.qr-note{margin-top:8px;font-size:.85rem;background:#f6f8fb;padding:6px 10px;border-radius:8px;color:#263238}
 
-/* ================= CTA + QR ================= */
-.cta-block{display:grid;grid-template-columns:1.1fr auto;gap:16px;align-items:center;margin:16px 0;padding:16px}
-@media(max-width:680px){.cta-block{grid-template-columns:1fr}}
-.qr{background:#fff;border:1px solid #e9edf1;padding:10px;border-radius:12px;text-align:center}
-.qr img{width:min(64vw,200px);height:auto;margin-inline:auto}
-.qr-note{margin-top:8px;font-size:.85rem;text-align:center;background:#f6f8fb;padding:6px 10px;border-radius:8px;color:#263238}
-
-/* ================= STICKY MOBILE CTA ================= */
-.sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;z-index:60;
-  background:#ffffffcc;backdrop-filter:saturate(160%) blur(6px);
-  border-top:1px solid #e9edf1;
-  padding:10px 14px calc(10px + env(safe-area-inset-bottom,0));
-  display:none;gap:10px;align-items:center
-}
-.sticky-cta .meta{
-  font-size:.85rem;font-weight:600;background:#276a3f;color:#fff;
-  padding:6px 10px;border-radius:999px;white-space:nowrap
-}
+/* Sticky CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#ffffffcc;backdrop-filter:blur(6px);border-top:1px solid #e9edf1;padding:10px 14px;display:none;gap:10px;align-items:center}
+.sticky-cta .meta{font-size:.85rem;font-weight:600;background:#276a3f;color:#fff;padding:6px 10px;border-radius:999px}
 .sticky-cta .btn{width:100%;padding:14px 18px;border-radius:12px}
-body.has-sticky{padding-bottom:80px}
 @media(max-width:680px){.sticky-cta{display:flex}}
 
-/* ================= FOOTER ================= */
-.footer{text-align:center;padding:14px 0;color:#5b6770;font-size:.85rem}
-
-/* ================= EXTRA GUARDS ================= */
-.hero,.pricing,.benefits,.cta-block,.qr{max-width:100%;overflow-x:clip}
-@media(max-width:390px){.h-title{font-size:clamp(1.35rem,7vw,1.7rem);line-height:1.18}.h-sub{font-size:.95rem}}
+/* Footer */
+.footer{text-align:center;padding:20px 16px;color:#5b6770;font-size:.85rem}
 </style>
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="container header">
   <div class="logos">
     <img src="https://i.postimg.cc/sg0XYsdR/IMG-4300.png" alt="RRC logo">
     <img src="https://i.postimg.cc/sg2xG1Lc/IMG-4301.png" alt="Grote Clubactie logo">
   </div>
-  <div class="lang" aria-label="Taal">
-    <button type="button" data-setlang="nl" class="active">NL</button>
-    <button type="button" data-setlang="en">EN</button>
-  </div>
+  <div class="lang"><button data-setlang="nl" class="active">NL</button><button data-setlang="en">EN</button></div>
 </header>
 
 <main class="container">
-  <!-- ================= HERO ================= -->
+  <!-- Hero -->
   <section class="hero">
     <div>
       <div class="win-badge" data-i18n="winbadge">Winkans 1 op 9</div>
-      <h1 class="h-title" data-i18n="h1">Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!</h1>
+      <h1 class="h-title" data-i18n="h1">Steun de Rotterdamse Rugby Club</h1>
       <p class="h-sub" data-i18n="sub">Help onze jeugd naar de interland van Oranje Rugby.</p>
       <div class="benefits">
-        <div class="benefit" data-i18n="b1">Kans op <strong>€100.000</strong></div>
-        <div class="benefit" data-i18n="b2"><strong>80%</strong> van elk lot gaat naar onze club</div>
-        <div class="benefit" data-i18n="b3">Extra prijzen: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>cadeaubonnen</strong></div>
+        <div class="benefit" data-i18n="b1">€100.000 hoofdprijs</div>
+        <div class="benefit" data-i18n="b2">80% naar de club</div>
+        <div class="benefit" data-i18n="b3">Cruise · e-bike · bonnen</div>
       </div>
     </div>
-    <figure class="hero-visual card" aria-label="Vader en zoon in RRC-shirt">
-      <img src="https://i.postimg.cc/bw6T1DwN/31-ED65-E1-D177-4-B06-9-FFF-8-B656-FC97966.png" alt="Vader en zoon in RRC-shirt met rugbybal" loading="lazy">
+    <figure class="hero-visual card">
+      <img src="https://i.postimg.cc/bw6T1DwN/31-ED65-E1-D177-4-B06-9-FFF-8-B656-FC97966.png" alt="Vader en zoon in RRC-shirt">
     </figure>
   </section>
 
-  <!-- ================= PRICING ================= -->
-  <section class="pricing" id="bundles" aria-label="Kies je bundel">
-    <!-- 1 lot -->
+  <!-- Pricing -->
+  <section class="pricing">
     <article class="card plan starter">
       <h3 data-i18n="p1_title">Starter – 1 lot</h3>
-      <div class="price" data-i18n="p1_price">€ 3,-</div>
-      <ul>
-        <li data-i18n="p1_l1">Kans op €100.000</li>
-        <li data-i18n="p1_l2">Winkans 1 op 9</li>
-      </ul>
-      <a class="btn" id="buy1" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+      <div class="price">€3,-</div>
+      <ul><li>Kans op €100.000</li><li>Winkans 1 op 9</li></ul>
+      <a class="btn" id="buy1" href="#">Nu steunen</a>
     </article>
 
-    <!-- 5 loten (MEEST GEKOZEN) -->
     <article class="card plan team">
       <span class="most" data-i18n="most">Meest gekozen</span>
       <h3 data-i18n="p2_title">Team Support – 5 loten</h3>
-      <div class="price" data-i18n="p2_price">€ 15,-</div>
-      <ul>
-        <li data-i18n="p2_l1">Meer impact, meer kans</li>
-        <li data-i18n="p2_l2">Cruise, e-bike en cadeaubonnen</li>
-      </ul>
-      <a class="btn" id="buy5" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+      <div class="price">€15,-</div>
+      <ul><li>Meer impact, meer kans</li><li>Cruise, e-bike en cadeaubonnen</li></ul>
+      <a class="btn" id="buy5" href="#">Nu steunen</a>
     </article>
 
-    <!-- 50 loten -->
     <article class="card plan super">
       <h3 data-i18n="p3_title">Superlot – 50 loten</h3>
-      <div class="price" data-i18n="p3_price">€ 150,-</div>
-      <ul>
-        <li data-i18n="p3_l1">Voor bedrijven & families</li>
-        <li data-i18n="p3_l2"><strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong></li>
-        <li data-i18n="p3_l3">Extra winkansen en mooie prijzen</li>
-      </ul>
-      <a class="btn" id="buy50" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+      <div class="price">€150,-</div>
+      <ul><li>Voor bedrijven & families</li><li>Onvergetelijke ervaring voor de jeugd</li></ul>
+      <a class="btn" id="buy50" href="#">Nu steunen</a>
     </article>
   </section>
 
-  <!-- ================= ANDERS ================= -->
-  <section class="card anders" aria-label="Ander aantal">
-    <label for="nLots" style="white-space:nowrap" data-i18n="anders_label">Anders:</label>
-    <input id="nLots" type="number" min="1" step="1" value="3" inputmode="numeric">
+  <!-- Anders -->
+  <section class="card anders">
+    <label for="nLots">Anders:</label>
+    <input id="nLots" type="number" min="1" step="1" value="3">
     <span id="totaal" class="totaal">Totaal: € 9,00</span>
-    <a id="btnAnders" class="btn" style="max-width:280px;margin-left:auto" href="#" target="_blank" rel="noopener" data-i18n="btn_continue">DOORGAAN</a>
+    <a id="btnAnders" class="btn" href="#">Doorgaan</a>
   </section>
 
-  <!-- ================= FEITEN ================= -->
-  <section class="card" style="padding:16px;margin:12px 0" aria-label="Belangrijke feiten">
-    <h2 data-i18n="facts_title">Belangrijke feiten</h2>
-    <ul style="margin:6px 0 0">
-      <li data-i18n="facts1"><strong>80%</strong> van elk lot gaat rechtstreeks naar onze club</li>
-      <li data-i18n="facts2"><strong>Winkans 1 op 9</strong> en meer dan <strong>780.000 prijzen</strong></li>
-      <li data-i18n="facts3">Trekking Grote Clubactie op <strong>11 november</strong></li>
-    </ul>
-  </section>
-
-  <!-- ================= PRIJZEN ================= -->
-  <section class="card" style="padding:16px;margin:12px 0" aria-label="Prijzen">
-    <h2 data-i18n="prizes_title">Prijzen</h2>
-    <div class="benefits" style="margin-top:8px">
-      <div class="benefit" data-i18n="pr1">🏆 Hoofdprijs: €100.000</div>
-      <div class="benefit" data-i18n="pr2">✈️ Reischeque: €10.000</div>
-      <div class="benefit" data-i18n="pr3">🚲 E-bike waardebon: €4.000</div>
-      <div class="benefit" data-i18n="pr4">🎁 +780.000 andere prijzen</div>
-    </div>
-    <p class="small" style="margin:8px 0 0">Volledige prijzenlijst: <a href="https://www.clubactie.nl/lotenkopers/prijzen-uitslag/" target="_blank" rel="noopener">clubactie.nl</a></p>
-  </section>
-
-  <!-- ================= CTA + QR ================= -->
-  <section class="cta-block card" aria-label="Scan & koop">
+  <!-- CTA + QR -->
+  <section class="cta-block card">
     <div>
-      <h2 data-i18n="cta_h2">Scan & koop direct je lot</h2>
-      <p class="small" data-i18n="cta_p">Winkans 1 op 9 · 80% gaat naar onze club.</p>
-      <a class="btn" id="buyMain" href="#" target="_blank" rel="noopener" data-i18n="btn_buy">NU STEUNEN</a>
+      <h2>Scan & koop direct je lot</h2>
+      <p class="small">Winkans 1 op 9 · 80% gaat naar de club.</p>
+      <a class="btn" id="buyMain" href="#">Nu steunen</a>
     </div>
-    <div class="qr" aria-label="QR-code">
-      <img src="https://i.postimg.cc/K4SjcKY5/IMG-4310.jpg" alt="QR-code voor loten kopen" loading="lazy">
-      <p class="qr-note" data-i18n="qr_note">Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.</p>
+    <div class="qr">
+      <img src="https://i.postimg.cc/K4SjcKY5/IMG-4310.jpg" alt="QR-code">
+      <p class="qr-note">Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.</p>
     </div>
   </section>
 </main>
 
-<!-- ================= FOOTER ================= -->
-<footer class="container footer">
-  <div data-i18n="foot_contact">Vragen? Mail <a href="mailto:jeugd@rrc.nl">jeugd@rrc.nl</a> of bel Karin: 06-2313718</div>
-  <div class="small" data-i18n="foot_line">Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie</div>
+<footer class="footer">
+  Rotterdamse Rugby Club · Grote Clubactie · Vragen? jeugd@rrc.nl · Karin 06-2313718
 </footer>
 
-<!-- ================= STICKY CTA ================= -->
-<nav class="sticky-cta" aria-label="Snelle actie">
+<nav class="sticky-cta">
   <div class="meta">Winkans 1 op 9 · 80% naar RRC</div>
-  <a class="btn" id="buySticky" href="#" target="_blank" rel="noopener">NU STEUNEN</a>
+  <a class="btn" id="buySticky" href="#">NU STEUNEN</a>
 </nav>
 
 <script>
-/* ---------------- LINKS MET UTM ---------------- */
-const BASE_LOT   = "https://lot.clubactie.nl/lot/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
-const BASE_SUPER = "https://lot.clubactie.nl/superlotkopen/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
-const withUTM = (base,utm)=>`${base}&utm_source=site&utm_medium=cta&utm_campaign=rrc&utm_content=${encodeURIComponent(utm)}`;
-const $ = id=>document.getElementById(id);
+const BASE_LOT="https://lot.clubactie.nl/lot/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
+const BASE_SUPER="https://lot.clubactie.nl/superlotkopen/rotterdamse-rugby-club--rrc-/hugo-v/7522670?hash=Y25na9G571ReC7jNbfPAS5SE6di";
+const withUTM=(base,utm)=>`${base}&utm_source=site&utm_medium=cta&utm_campaign=rrc&utm_content=${utm}`;
 
-if($('buy1'))     $('buy1').href     = withUTM(BASE_LOT,"1_lot");
-if($('buy5'))     $('buy5').href     = withUTM(BASE_LOT,"5_loten");
-if($('buy50'))    $('buy50').href    = withUTM(BASE_SUPER,"superlot");
-if($('buyMain'))  $('buyMain').href  = withUTM(BASE_LOT,"main_cta");
-if($('buySticky'))$('buySticky').href= withUTM(BASE_LOT,"sticky_cta");
+document.getElementById("buy1").href=withUTM(BASE_LOT,"1_lot");
+document.getElementById("buy5").href=withUTM(BASE_LOT,"5_loten");
+document.getElementById("buy50").href=withUTM(BASE_SUPER,"superlot");
+document.getElementById("buyMain").href=withUTM(BASE_LOT,"main_cta");
+document.getElementById("buySticky").href=withUTM(BASE_LOT,"sticky_cta");
 
-/* ---------------- ANDERS (live totaal + link) ---------------- */
-const nLots = $('nLots'), totaal = $('totaal'), btnAnders = $('btnAnders');
-function fmtEUR(v){return new Intl.NumberFormat(document.documentElement.lang==='nl'?'nl-NL':'en-GB',{style:'currency',currency:'EUR'}).format(v)}
+const nLots=document.getElementById("nLots");
+const totaal=document.getElementById("totaal");
+const btnAnders=document.getElementById("btnAnders");
 function updateAnders(){
-  if(!nLots) return;
-  const n = Math.max(1, parseInt(nLots.value||'1',10));
-  if(totaal) totaal.textContent = (document.documentElement.lang==='nl'?'Totaal: ':'Total: ') + fmtEUR(n*3);
-  if(btnAnders) btnAnders.href = withUTM(BASE_LOT, `anders_${n}`);
+  const n=Math.max(1,parseInt(nLots.value||"1",10));
+  totaal.textContent="Totaal: € "+(n*3).toFixed(2).replace(".",",");
+  btnAnders.href=withUTM(BASE_LOT,`anders_${n}`);
 }
-if(nLots){ nLots.addEventListener('input', updateAnders); updateAnders(); }
-
-/* ---------------- EENVOUDIGE I18N ---------------- */
-const dict = {
-  nl:{title:"Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!",
-      meta:"Help de jeugd van RRC naar de interland van Oranje Rugby. 80% gaat naar de club. Winkans 1 op 9. Trekking 11 november. Kies 1 lot, 5 loten (meest gekozen) of een Superlot.",
-      winbadge:"Winkans 1 op 9",
-      h1:"Steun de Rotterdamse Rugby Club – Koop een lot en win mooie prijzen!",
-      sub:"Help onze jeugd naar de interland van Oranje Rugby.",
-      b1:"Kans op <strong>€100.000</strong>", b2:"<strong>80%</strong> van elk lot gaat naar onze club",
-      b3:"Extra prijzen: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>cadeaubonnen</strong>",
-      p1_title:"Starter – 1 lot", p1_price:"€ 3,-", p1_l1:"Kans op €100.000", p1_l2:"Winkans 1 op 9",
-      p2_title:"Team Support – 5 loten", p2_price:"€ 15,-", p2_l1:"Meer impact, meer kans", p2_l2:"Cruise, e-bike en cadeaubonnen",
-      p3_title:"Superlot – 50 loten", p3_price:"€ 150,-", p3_l1:"Voor bedrijven & families",
-      p3_l2:"<strong>Maak direct het verschil – geef de jeugd een onvergetelijke ervaring</strong>", p3_l3:"Extra winkansen en mooie prijzen",
-      most:"Meest gekozen", anders_label:"Anders:", btn_continue:"DOORGAAN",
-      facts_title:"Belangrijke feiten", facts1:"<strong>80%</strong> van elk lot gaat rechtstreeks naar onze club",
-      facts2:"<strong>Winkans 1 op 9</strong> en meer dan <strong>780.000 prijzen</strong>", facts3:"Trekking Grote Clubactie op <strong>11 november</strong>",
-      prizes_title:"Prijzen", pr1:"🏆 Hoofdprijs: €100.000", pr2:"✈️ Reischeque: €10.000", pr3:"🚲 E-bike waardebon: €4.000", pr4:"🎁 +780.000 andere prijzen",
-      cta_h2:"Scan & koop direct je lot", cta_p:"Winkans 1 op 9 · 80% gaat naar onze club.", btn_buy:"NU STEUNEN",
-      qr_note:"Werkt overal: camera/QR-scanner → kies je bundel → betaal & klaar.",
-      foot_contact:"Vragen? Mail <a href=\"mailto:jeugd@rrc.nl\">jeugd@rrc.nl</a> of bel Karin: 06-2313718",
-      foot_line:"Rotterdamse Rugby Club · Sinds 1940 · Grote Clubactie"},
-  en:{title:"Support Rotterdamse Rugby Club – Buy a ticket and win great prizes!",
-      meta:"Help our youth attend the national match. 80% goes to the club. Odds 1 in 9. Draw on November 11. Choose 1, 5 (most chosen) or a Super Ticket.",
-      winbadge:"Odds 1 in 9",
-      h1:"Support Rotterdamse Rugby Club – Buy a ticket and win great prizes!",
-      sub:"Help our youth attend the Netherlands National Rugby Team match.",
-      b1:"Chance to win <strong>€100,000</strong>", b2:"<strong>80%</strong> of each ticket goes to our club",
-      b3:"Extra prizes: <strong>cruise</strong>, <strong>e-bike</strong>, <strong>gift cards</strong>",
-      p1_title:"Starter – 1 ticket", p1_price:"€ 3", p1_l1:"Chance at €100,000", p1_l2:"Odds 1 in 9",
-      p2_title:"Team Support – 5 tickets", p2_price:"€ 15", p2_l1:"More impact, more chance", p2_l2:"Cruise, e-bike and gift cards",
-      p3_title:"Super Ticket – 50 tickets", p3_price:"€ 150", p3_l1:"For companies & families",
-      p3_l2:"<strong>Make an immediate impact – give the kids an unforgettable experience</strong>", p3_l3:"More chances & great prizes",
-      most:"Most chosen", anders_label:"Other:", btn_continue:"CONTINUE",
-      facts_title:"Key facts", facts1:"<strong>80%</strong> of each ticket goes directly to our club",
-      facts2:"<strong>Odds 1 in 9</strong> and over <strong>780,000 prizes</strong>", facts3:"Grote Clubactie draw on <strong>11 November</strong>",
-      prizes_title:"Prizes", pr1:"🏆 Grand prize: €100,000", pr2:"✈️ Travel voucher: €10,000", pr3:"🚲 E-bike voucher: €4,000", pr4:"🎁 +780,000 other prizes",
-      cta_h2:"Scan & buy your ticket now", cta_p:"Odds 1 in 9 · 80% goes to our club.", btn_buy:"SUPPORT NOW",
-      qr_note:"Works anywhere: camera/QR → pick a bundle → pay & done.",
-      foot_contact:"Questions? Email <a href=\"mailto:jeugd@rrc.nl\">jeugd@rrc.nl</a> or call Karin: +31 6 2313718",
-      foot_line:"Rotterdamse Rugby Club · Since 1940 · Grote Clubactie"}
-};
-function setLang(lang){
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-setlang]').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang));
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n'); const val = dict[lang][key];
-    if(val!==undefined){
-      if(el.tagName==='META' && key==='meta'){ el.setAttribute('content', val); }
-      else if(el.tagName==='TITLE'){ el.textContent = val; }
-      else{ el.innerHTML = val; }
-    }
-  });
-  updateAnders();
-}
-document.addEventListener('click', e=>{
-  const b=e.target.closest('[data-setlang]'); if(b) setLang(b.dataset.setlang);
-});
-
-/* ---------------- STICKY SPACING (mobiel) ---------------- */
-(function(){
-  const mq = window.matchMedia("(max-width: 680px)");
-  const toggle = ()=> document.body.classList.toggle("has-sticky", mq.matches);
-  mq.addEventListener ? mq.addEventListener("change", toggle) : mq.addListener(toggle);
-  toggle();
-})();
-
-/* init NL */
-setLang('nl');
+nLots.addEventListener("input",updateAnders);
+updateAnders();
 </script>
 </body>
 </html>
